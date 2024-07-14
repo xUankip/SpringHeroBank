@@ -2,7 +2,7 @@ namespace SpringHeroBank.Repository;
 
 public interface IUser
 {
-    public void Register(User user);
+    public void Save(User user);
     public User Login(string userName, string passWord);
     public void ShowInfo(User user);
     public void UpdateInfo(User user, string fullName, string phone);

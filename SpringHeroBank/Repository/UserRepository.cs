@@ -5,7 +5,7 @@ using MySqlConnector;
 public class UserRepository : IUser
 {
     private const string MySqlConnectionString = "server=127.0.0.1;uid=root;" + "pwd=;database=spring_hero_bank";
-    public void Register(User user)
+    public void Save(User user)
     {
         var conn = new MySqlConnection(MySqlConnectionString);
         conn.Open();
@@ -70,7 +70,7 @@ public class UserRepository : IUser
     {
         var conn = new MySqlConnection(MySqlConnectionString);
         conn.Open();
-        string query = "UPDATE Users SET FullName = @FullName, PhoneNumber = @PhoneNumber WHERE UserId = @UserId";
+        string query = "UPDATE Users SET FullName = @FullName, PhoneNumber = @PhoneNumber WHERE Id = @Id";
         var command = new MySqlCommand(query, conn);
         command.Parameters.AddWithValue("@FullName", newFullName);
         command.Parameters.AddWithValue("@PhoneNumber", newPhoneNumber);
@@ -83,23 +83,57 @@ public class UserRepository : IUser
     {
         var conn = new MySqlConnection(MySqlConnectionString);
             conn.Open();
-            string query = "UPDATE Users SET Password = @Password WHERE UserId = @UserId";
-            using (var command = new MySqlCommand(query, conn)) {
+            string query = "UPDATE Users SET Password = @Password WHERE Id = @Id";
+            var command = new MySqlCommand(query, conn);
                 command.Parameters.AddWithValue("@Password", newPassword);
                 command.Parameters.AddWithValue("@UserId", user.Id);
                 command.ExecuteNonQuery();
-            }
+            
             Console.WriteLine("Change Password Success");
     }
 
     public void Deposit(User user, decimal amount)
     {
-        
+        var conn = new MySqlConnection(MySqlConnectionString);
+        conn.Open();
+        string query = "UPDATE Users SET Balance = Balance + @Amount WHERE Id = @Id";
+        var command = new MySqlCommand(query, conn);
+        command.Parameters.AddWithValue("@Amount", amount);
+        command.Parameters.AddWithValue("@Id", user.Id);
+        command.ExecuteNonQuery();
+        query = "INSERT INTO Transactions (Type, Amount, Date, UserId, Status) VALUES (@Type, @Amount, @Date, @UserId, @Status)";
+        command = new MySqlCommand(query, conn);
+        command.Parameters.AddWithValue("@Type", "Deposit");
+        command.Parameters.AddWithValue("@Amount", amount);
+        command.Parameters.AddWithValue("@Date", DateTime.Now);
+        command.Parameters.AddWithValue("@UserId", user.Id);
+        command.Parameters.AddWithValue("@Status", 1);
+        command.ExecuteNonQuery();
+        Console.WriteLine("Deposit" + amount+ "to" + user.Id + "Success");
     }
 
     public void Withdraw(User user, decimal amount)
     {
-        
+        var conn = new MySqlConnection(MySqlConnectionString);
+            conn.Open();
+            if (user.Balance >= amount) {
+                string query = "UPDATE Users SET Balance = Balance - @Amount WHERE Id = @Id";
+                var command = new MySqlCommand(query, conn);
+                    command.Parameters.AddWithValue("@Amount", amount);
+                    command.Parameters.AddWithValue("@UserId", user.Id);
+                    command.ExecuteNonQuery();
+                query = "INSERT INTO Transactions (Type, Amount, Date, Id) VALUES (@Type, @Amount, @Date, @Id)";
+                command = new MySqlCommand(query, conn);
+                    command.Parameters.AddWithValue("@Type", "Withdraw");
+                    command.Parameters.AddWithValue("@Amount", amount);
+                    command.Parameters.AddWithValue("@Date", DateTime.Now);
+                    command.Parameters.AddWithValue("@UserId", user.Id);
+                    command.ExecuteNonQuery();
+                
+                Console.WriteLine("Withdraw Success");
+            } else {
+                Console.WriteLine("Balance Not Enough");
+            }
     }
 
     public void Transfer(User sender, User receiver, double amount)
