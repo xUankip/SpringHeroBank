@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "wP9t011+ItTfc52+iwBymkCT3R/0mRuaiBtli1pwF8pvb7gh9UgaNgIQrPoW0uE7H0gP0M3QyMcMhOAJJXmCzg==",
+  "dgSpecHash": "GaF2OkMAWk8CSFqvIj3PqHq46y1YesHAh/Ny0JWtM70Tv8S2FznarmPAh28W1Lb+rsf5glcQwovDK/UihCpwmg==",
   "success": true,
-  "projectFilePath": "/Users/truongnx/RiderProjects/SpringHeroBank/SpringHeroBank/SpringHeroBank.csproj",
+  "projectFilePath": "C:\\Users\\Windows\\Documents\\GitHub\\SpringHeroBank\\SpringHeroBank\\SpringHeroBank.csproj",
   "expectedPackageFiles": [
-    "/Users/truongnx/.nuget/packages/microsoft.extensions.logging.abstractions/7.0.1/microsoft.extensions.logging.abstractions.7.0.1.nupkg.sha512",
-    "/Users/truongnx/.nuget/packages/mysqlconnector/2.3.7/mysqlconnector.2.3.7.nupkg.sha512"
+    "C:\\Users\\Windows\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\7.0.1\\microsoft.extensions.logging.abstractions.7.0.1.nupkg.sha512",
+    "C:\\Users\\Windows\\.nuget\\packages\\mysqlconnector\\2.3.7\\mysqlconnector.2.3.7.nupkg.sha512"
   ],
   "logs": []
 }

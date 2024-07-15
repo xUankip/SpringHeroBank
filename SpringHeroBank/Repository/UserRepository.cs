@@ -1,6 +1,7 @@
 using System.Threading.Channels;
 
-namespace SpringHeroBank.Repository;
+namespace SpringHeroBank.Interface;
+
 using MySqlConnector;
 public class UserRepository : IUser
 {
@@ -92,8 +93,9 @@ public class UserRepository : IUser
             Console.WriteLine("Change Password Success");
     }
 
-    public void Deposit(User user, decimal amount)
+    public void Deposit(decimal amount)
     {
+        User user = new User();
         var conn = new MySqlConnection(MySqlConnectionString);
         conn.Open();
         string query = "UPDATE Users SET Balance = Balance + @Amount WHERE Id = @Id";
@@ -136,7 +138,7 @@ public class UserRepository : IUser
             }
     }
 
-    public void Transfer(User sender, User receiver, double amount)
+    public void Transfer(User sender, User receiver, decimal amount)
     {
         
     }
