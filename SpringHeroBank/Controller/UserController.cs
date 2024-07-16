@@ -2,6 +2,7 @@ using System.Threading.Channels;
 using SpringHeroBank.Repository;
 
 namespace SpringHeroBank.Controller;
+using SpringHeroBank.Interface;
 
 public class UserController
 {
@@ -55,9 +56,14 @@ public class UserController
         
     }
 
-    public void ShowInfo()
+    public void ShowInfo(User user)
     {
-        
+        Console.WriteLine($"Full Name: {user.FullName}");
+        Console.WriteLine($"Phone Number: {user.PhoneNumber}");
+        Console.WriteLine($"Balance: {user.Balance}");
+        Console.WriteLine($"Account Number: {user.AccountNumber}");
+        Console.WriteLine($"Status: {(user.Islock ? "Locked" : "Active")}");
+        _userRepository.ShowInfo(user);
     }
 
     public void UpdateInfo()

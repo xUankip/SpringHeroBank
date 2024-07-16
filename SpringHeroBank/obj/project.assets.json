@@ -143,19 +143,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Windows\\.nuget\\packages\\": {}
+    "/Users/truongnx/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Windows\\Documents\\GitHub\\SpringHeroBank\\SpringHeroBank\\SpringHeroBank.csproj",
+      "projectUniqueName": "/Users/truongnx/RiderProjects/SpringHeroBank/SpringHeroBank/SpringHeroBank.csproj",
       "projectName": "SpringHeroBank",
-      "projectPath": "C:\\Users\\Windows\\Documents\\GitHub\\SpringHeroBank\\SpringHeroBank\\SpringHeroBank.csproj",
-      "packagesPath": "C:\\Users\\Windows\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Windows\\Documents\\GitHub\\SpringHeroBank\\SpringHeroBank\\obj\\",
+      "projectPath": "/Users/truongnx/RiderProjects/SpringHeroBank/SpringHeroBank/SpringHeroBank.csproj",
+      "packagesPath": "/Users/truongnx/.nuget/packages/",
+      "outputPath": "/Users/truongnx/RiderProjects/SpringHeroBank/SpringHeroBank/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Windows\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "/Users/truongnx/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -200,7 +200,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Users\\Windows\\.dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/Users/truongnx/.dotnet/sdk/8.0.300/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

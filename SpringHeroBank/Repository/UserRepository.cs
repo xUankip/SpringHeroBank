@@ -60,11 +60,9 @@ public class UserRepository : IUser
 
     public void ShowInfo(User user)
     {
-        Console.WriteLine($"Full Name: {user.FullName}");
-        Console.WriteLine($"Phone Number: {user.PhoneNumber}");
-        Console.WriteLine($"Balance: {user.Balance}");
-        Console.WriteLine($"Account Number: {user.AccountNumber}");
-        Console.WriteLine($"Status: {(user.Islock ? "Locked" : "Active")}");
+        var conn = new MySqlConnection(MySqlConnectionString);
+        conn.Open();
+        string query = "select * from User where UserId = @UserId";
     }
 
     public void UpdateInfo(User user, string newFullName, string newPhoneNumber)
