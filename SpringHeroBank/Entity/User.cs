@@ -12,6 +12,7 @@ public class User
     public string PhoneNumber { get; set; }
     public decimal Balance { get; set; }
     public Boolean Islock { get; set; } //1-active 0-lock
+    public int Type { get; set; }
     public List<Transaction> Transactions { get; set; }
     
 }

@@ -11,14 +11,4 @@ public class Transactions
     public string ReceiverAccountNumber { get; set; } //số tk người nhận.
     public Boolean Status { get; set; } //trạng thái giao dịch
     
-    public Transactions(double id, DateTime createdAt, string type, double amount, string senderAccountNumber, string receiverAccountNumber, bool status)
-    {
-        Id = id;
-        CreatedAt = createdAt;
-        Type = type;
-        Amount = amount;
-        SenderAccountNumber = senderAccountNumber;
-        ReceiverAccountNumber = receiverAccountNumber;
-        Status = status;
-    }
 }

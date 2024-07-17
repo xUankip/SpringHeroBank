@@ -4,6 +4,6 @@ public class TransactionRepository : ITransaction
 {
     public void DisplayTransactionHistory(User user)
     {
-        throw new NotImplementedException();
+        
     }
 }

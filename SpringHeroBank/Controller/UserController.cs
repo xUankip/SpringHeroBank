@@ -18,6 +18,11 @@ public class UserController
         user.FullName = Console.ReadLine();
         Console.WriteLine("Input Phone Number");
         user.PhoneNumber = Console.ReadLine();
+        Console.WriteLine("Account Type : ");
+        Console.WriteLine("1-Admin");
+        Console.WriteLine("2-User");
+        var choice = Console.ReadLine();
+        user.Type = choice;
         _userRepository.Save(user);
     }
 
@@ -56,8 +61,9 @@ public class UserController
         
     }
 
-    public void ShowInfo(User user)
+    public void ShowInfo()
     {
+        User user = new User();
         Console.WriteLine($"Full Name: {user.FullName}");
         Console.WriteLine($"Phone Number: {user.PhoneNumber}");
         Console.WriteLine($"Balance: {user.Balance}");

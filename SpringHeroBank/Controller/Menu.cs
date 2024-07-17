@@ -1,7 +1,7 @@
 namespace SpringHeroBank.Controller;
 public class Menu
 {
-    static void UserMenu(User user)
+    public static void UserMenu(User user)
     { 
      UserController _userController = new UserController();
         while (true)
@@ -54,7 +54,7 @@ public class Menu
         }
     }
 
-    static void AminMenu(Admin admin)
+    public static void AminMenu(Admin admin)
     {
         AdminController _adminController = new AdminController();
         while (true)

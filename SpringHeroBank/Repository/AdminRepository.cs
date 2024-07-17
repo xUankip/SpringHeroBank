@@ -1,6 +1,7 @@
 namespace SpringHeroBank.Repository;
 using MySqlConnector;
-public class AdminRepository : IAdmin
+
+public class AdminRepository
 {
     private const string MySqlConnectionString = "server=127.0.0.1;uid=root;" + "pwd=;database=spring_hero_bank";
     public void DisplayAllUsers()

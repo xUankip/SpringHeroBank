@@ -1,9 +1,9 @@
 using System.Threading.Channels;
 
-namespace SpringHeroBank.Interface;
+namespace SpringHeroBank.Repository;
 
 using MySqlConnector;
-public class UserRepository : IUser
+public class UserRepository
 {
     private const string MySqlConnectionString = "server=127.0.0.1;uid=root;" + "pwd=;database=spring_hero_bank";
     public void Save(User user)
